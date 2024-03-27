@@ -17,14 +17,25 @@ cookie juice,2.5
 chocolatine,2
 muffin,3'''
 
-food_items = pd.read_csv(io.StringIO(csv2))
-
 answer = """
 SELECT * FROM beverages
 CROSS JOIN food_items
 """
 
 solution = duckdb.sql(answer).df()
+
+with st.sidebar:
+    option = st.selectbox(
+        "What would you like to review?",
+        ["Joins", "GroupBy", "Windows Functions"],
+        index=None,
+        placeholder="Select a theme..."
+    )
+    st.write('You selected', option)
+
+food_items = pd.read_csv(io.StringIO(csv2))
+
+
 
 st.header("enter your code:")
 query = st.text_area(label="votre code SQL ici", key="user_input")
