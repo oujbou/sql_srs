@@ -17,6 +17,8 @@ cookie juice,2.5
 chocolatine,2
 muffin,3'''
 
+food_items = pd.read_csv(io.StringIO(csv2))
+
 answer = """
 SELECT * FROM beverages
 CROSS JOIN food_items
@@ -33,7 +35,6 @@ with st.sidebar:
     )
     st.write('You selected', option)
 
-food_items = pd.read_csv(io.StringIO(csv2))
 
 
 
