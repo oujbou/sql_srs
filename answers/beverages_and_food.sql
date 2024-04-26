@@ -1,2 +1,2 @@
 SELECT * FROM beverages
-CROSS JOIN hola!
+CROSS JOIN food_items
